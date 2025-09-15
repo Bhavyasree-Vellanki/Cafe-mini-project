@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafe Finder ☕</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- Topbar with brand, search, radius, actions -->
+    <header class="topbar">
+      <div class="brand" title="Cafe Finder">
+        <img src="./assets/coffee.svg" alt="coffee" class="brand-icon" />
+        <span>Cafe Finder</span>
+      </div>
+      <div class="controls">
+        <input
+          id="searchInput"
+          type="search"
+          placeholder="Search cafes by name or area..."
+          aria-label="Search cafes"
+        />
+        <select id="radiusSelect" aria-label="Search radius">
+          <option value="500">0.5 km</option>
+          <option value="1000" selected>1 km</option>
+          <option value="2000">2 km</option>
+          <option value="5000">5 km</option>
+        </select>
+        <button id="btnLocate" class="btn primary" aria-label="Find near me">☕ Find Near Me</button>
+        <button id="btnPick" class="btn ghost" aria-label="Pick location on map">Pick on Map</button>
+        <button id="btnReset" class="btn" aria-label="Reset search">Reset</button>
+      </div>
+    </header>
+
+    <!-- Layout: sidebar + map -->
+    <main class="layout">
+      <aside class="sidebar" id="sidebar" aria-label="Cafe list">
+        <div class="list-header">
+          <h2>Nearby Cafes</h2>
+          <small id="resultSummary">Ready when you are.</small>
+        </div>
+        <div id="cafeList" class="cafe-list" role="list"></div>
+      </aside>
+      <section class="map-wrap">
+        <div id="map" class="map" role="application" aria-label="Map"></div>
+        <div id="spinner" class="spinner hidden" aria-hidden="true">
+          <div class="spinner-inner"></div>
+          <div class="spinner-text">Loading…</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Built with Leaflet &amp; OpenStreetMap • No billing required</span>
+    </footer>
+
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="./script.js"></script>
+  </body>
+  </html>
+
+
